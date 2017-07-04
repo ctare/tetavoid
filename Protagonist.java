@@ -1,6 +1,6 @@
 public class Protagonist extends PRect{
 
-    public Protagonist(int x, int y, int width, int height) {
+    public Protagonist(float x, float y, int width, int height) {
         super(x, y, width, height);
     }
 

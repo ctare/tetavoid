@@ -1,6 +1,6 @@
 public class Block extends PRect{
 
-    public Block(int x, int y, int width, int height) {
+    public Block(float x, float y, int width, int height) {
         super(x,y,width,height);
     }
 

@@ -20,6 +20,8 @@ public class Main extends PApplet {
         background(0);
         for (Block block : blocks) {
             block.update();
+            block.x += cos(atan2(mouseY - block.y, mouseX - block.x)) * 2;
+            block.y += sin(atan2(mouseY - block.y, mouseX - block.x)) * 2;
         }
     }
 
