@@ -6,6 +6,9 @@ public class Block extends PRect{
 
     @Override
     public void update(){
+        if(!Utils.collisionRectToBottom(this)) {
+            y++;
+        }
         Main.p.rect(x, y, width, height);
     }
 }
