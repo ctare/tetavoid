@@ -3,7 +3,7 @@ import processing.core.PApplet;
 import java.util.ArrayList;
 
 public class Main extends PApplet {
-    public static PApplet p;
+    public static Main p;
     public ArrayList<Block> blocks = new ArrayList<>();
 
     public void settings() {
