@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Main extends PApplet {
     public static PApplet p;
     public ArrayList<Block> blocks = new ArrayList<>();
+    private Protagonist me = new Protagonist(200, 300, 25, 25);
 
     public void settings() {
         size(400, 600);
@@ -20,9 +21,13 @@ public class Main extends PApplet {
         background(0);
         for (Block block : blocks) {
             block.update();
-//            block.x += cos(atan2(mouseY - block.y, mouseX - block.x)) * 2;
-//            block.y += sin(atan2(mouseY - block.y, mouseX - block.x)) * 2;
         }
+
+        me.update();
+
+        if(Key.isPressed('j')) me.move(Protagonist.MoveType.RIGHT);
+        if(Key.isPressed('f')) me.move(Protagonist.MoveType.LEFT);
+        if(Key.isPressed('k')) me.jump();
     }
 
     public static void main(String args[]) {
