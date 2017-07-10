@@ -25,9 +25,10 @@ public class Main extends PApplet {
 
         me.update();
 
-        if(Key.isPressed('j')) me.move(Protagonist.MoveType.RIGHT);
-        if(Key.isPressed('f')) me.move(Protagonist.MoveType.LEFT);
-        if(Key.isPressed('k')) me.jump();
+        if(Key.isPressed(39)) me.move(Protagonist.MoveType.RIGHT);
+        if(Key.isPressed(37)) me.move(Protagonist.MoveType.LEFT);
+        if(Key.isPressed(38)) me.jump();
+        text(keyCode, width/2, height/2);
     }
 
     public static void main(String args[]) {
@@ -36,12 +37,12 @@ public class Main extends PApplet {
 
     @Override
     public void keyPressed() {
-        Key.press(key);
+        Key.press(keyCode);
     }
 
     @Override
     public void keyReleased() {
-        Key.release(key);
+        Key.release(keyCode);
     }
 
     @Override

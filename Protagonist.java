@@ -27,6 +27,9 @@ public class Protagonist extends PRect{
     public void update() {
         Main.p.rect(super.x, super.y, super.width, super.height);
         y += ySpeed;
+        if(Utils.collisionRectToBottom(this)){
+            y = Main.p.height - height;
+        }
         x += xSpeed;
         ySpeed += yAcceleration;
         if(xSpeed < 0) xSpeed += xAcceleration;
