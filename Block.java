@@ -7,7 +7,14 @@ public class Block extends PRect{
     @Override
     public void update(){
         if(!Utils.collisionRectToBottom(this)) {
-            y++;
+            boolean flg = true;
+            for(PRect rect: Main.p.blocks){
+                if(rect != this && Utils.collisionRect(this, rect)){
+                    flg = false;
+                    break;
+                }
+            }
+            if(flg) y++;
         }
         Main.p.rect(x, y, width, height);
     }
