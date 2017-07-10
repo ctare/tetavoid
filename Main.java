@@ -28,4 +28,14 @@ public class Main extends PApplet {
     public static void main(String args[]) {
         PApplet.main("Main");
     }
+
+    @Override
+    public void keyPressed() {
+        Key.press(key);
+    }
+
+    @Override
+    public void keyReleased() {
+        Key.release(key);
+    }
 }
