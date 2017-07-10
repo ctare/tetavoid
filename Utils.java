@@ -1,6 +1,8 @@
+import processing.core.PApplet;
+
 public class Utils {
     public static boolean collisionRectX(PRect r1, PRect r2) {
-        if (r1.x <= r2.x + r2.width || r1.x + r1.width >= r2.x) {
+        if (PApplet.abs((r1.x + r1.width/2) - (r2.x + r2.width/2)) <= r1.width/2 + r2.width/2) {
             return true;
         } else {
             return false;
@@ -8,11 +10,15 @@ public class Utils {
     }
 
     public static boolean collisionRectY(PRect r1, PRect r2) {
-        if (r1.y + r1.height >= r2.y) {
+        if (PApplet.abs((r1.y + r1.height/2) - (r2.y + r2.height/2)) <= r1.height/2 + r2.height/2) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public static boolean collisionRect(PRect r1, PRect r2){
+        return collisionRectX(r1, r2) && collisionRectY(r1, r2);
     }
 
     public static boolean collisionRectToWall(PRect r) {
