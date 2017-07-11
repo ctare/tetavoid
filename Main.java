@@ -18,6 +18,12 @@ public class Main extends PApplet {
     }
 
     public void draw() {
+        if(frameCount % 50 == 0){
+            int r = (int)random(10, 40);
+            blocks.add(new Block(random(width), 0, r, r));
+            r = (int)random(10, 40);
+            blocks.add(new Block(random(width), 0, r, r));
+        }
         background(0);
         for (Block block : blocks) {
             block.update();
