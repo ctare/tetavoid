@@ -1,52 +1,64 @@
 import processing.core.PApplet;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main extends PApplet {
     public static Main p;
-    public ArrayList<Block> blocks = new ArrayList<>();
-    private Protagonist me = new Protagonist(200, 300, 25, 25);
 
     public void settings() {
-        size(400, 600);
-        p = this;
+        size(500, 500);
     }
 
+    Gene gene;
     public void setup() {
-        background(0);
-        blocks.add(new Block(200,0,20,20));
+        gene = new Gene(255, 100, 0.1);
     }
+    ArrayList<Tree> trees;
 
+    double avgMax;
+    int maxMax;
     public void draw() {
         background(0);
-        for (Block block : blocks) {
-            block.update();
+
+        for (int i = 0; i < 10; i++);
+        gene.nextGeneration();
+        trees = Tree.getTrees(width/2, height, gene.gene[0]);
+
+        for(Tree tree : trees){
+            stroke(255);
+            strokeWeight(tree.fat);
+            line(tree.fromX, tree.fromY, tree.toX, tree.toY);
+
+            if(tree.isLeaf){
+                noStroke();
+                fill(100, 255, 100, 70);
+                rect(tree.toX - Tree.Area.FAT, tree.toY - Tree.Area.FAT, Tree.Area.FAT, Tree.Area.FAT);
+            }
         }
 
-        me.update();
+        fill(255);
+        double avg = gene.avg();
+        int max = gene.max();
+        avgMax = Math.max(avgMax, avg);
+        maxMax = Math.max(maxMax, max);
+        text(String.format("%d, avg: %f, max %d", gene.t, avg, max), 20, 20);
+        text(String.format("    avg: %f, max %d", avgMax, maxMax), 20, 40);
 
-        if(Key.isPressed(39)) me.move(Protagonist.MoveType.RIGHT);
-        if(Key.isPressed(37)) me.move(Protagonist.MoveType.LEFT);
-        if(Key.isPressed(38)) me.jump();
-        text(keyCode, width/2, height/2);
-    }
-
-    public static void main(String args[]) {
-        PApplet.main("Main");
+//        for (int i = 0; i < gene.gene.length; i++) {
+//            text(Arrays.toString(gene.gene[i]), 20, 60 + i * 20);
+//        }
     }
 
     @Override
     public void keyPressed() {
-        Key.press(keyCode);
+        if(key == 'r'){
+            gene = new Gene(255, 50, 0.0001);
+        }
     }
 
-    @Override
-    public void keyReleased() {
-        Key.release(keyCode);
-    }
-
-    @Override
-    public void mousePressed() {
-        blocks.add(new Block(mouseX, mouseY, 20, 20));
+    public static void main(String args[]) {
+        PApplet.main("Main");
     }
 }
