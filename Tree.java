@@ -23,7 +23,6 @@ public class Tree {
     public static void tree(ArrayList<Tree> trees, float startX, float startY, GeneCell[] gene){
         ArrayDeque<Tree> deque = new ArrayDeque<>();
         deque.add(new Tree(startX, startY, -90, 5, 60, 1));
-        int dp = 1;
         while(!deque.isEmpty()){
             Tree target = deque.removeFirst();
             trees.add(target);

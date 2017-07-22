@@ -43,17 +43,19 @@ public class Gene {
 //            === area size ===
             Tree.Area area = new Tree.Area(trees);
             area.fill(trees);
-            fitness[i] = area.sum();
+//            fitness[i] = area.sum();
 
 //            === sum high ===
             int sum = 0;
+            int edgeSum = 0;
             for (Tree tree : trees) {
-                sum += tree.toY;
+                if(tree.isLeaf) sum += tree.toY;
+                else edgeSum += tree.toY;
             }
-            fitness[i] = -sum;
+//            fitness[i] = -sum;
 
 //            === sum and area ===
-            fitness[i] = area.sum() + -sum;
+            fitness[i] = area.sum() * -(sum) / 1000;
 
 //            == highest ==
 //            float minv = Float.POSITIVE_INFINITY;
