@@ -1,3 +1,5 @@
+package genetic;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 

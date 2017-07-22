@@ -1,7 +1,11 @@
+package qlearning;
+
+import qlearning.model.*;
+
 /**
  * Created by ctare on 2017/07/22.
  */
-public class Maze extends UndirectedGraph{
+public class Maze extends UndirectedGraph {
     public Node[][] nodes;
     Maze(int[][] mazeData) {
         super(countNodes(mazeData));

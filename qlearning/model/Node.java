@@ -1,3 +1,5 @@
+package qlearning.model;
+
 /**
  * Created by ctare on 2017/07/22.
  */

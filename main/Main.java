@@ -1,8 +1,13 @@
-import processing.core.PApplet;
+package main;
 
-import java.util.ArrayDeque;
+import genetic.Gene;
+import genetic.Tree;
+import processing.core.PApplet;
+import qlearning.Maze;
+import qlearning.QLearning;
+import qlearning.model.*;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Main extends PApplet {
     public static Main p;
@@ -77,9 +82,9 @@ public class Main extends PApplet {
 //        === 遺伝的アルゴリズム ===
 //        for (int i = 0; i < 10; i++);
 //        gene.nextGeneration();
-//        trees = Tree.getTrees(width/2, height, gene.gene[0]);
+//        trees = genetic.Tree.getTrees(width/2, height, gene.gene[0]);
 //
-//        for(Tree tree : trees){
+//        for(genetic.Tree tree : trees){
 //            stroke(255);
 //            strokeWeight(tree.fat);
 //            line(tree.fromX, tree.fromY, tree.toX, tree.toY);
@@ -87,7 +92,7 @@ public class Main extends PApplet {
 //            if(tree.isLeaf){
 //                noStroke();
 //                fill(100, 255, 100, 70);
-//                rect(tree.toX - Tree.Area.FAT, tree.toY - Tree.Area.FAT, Tree.Area.FAT, Tree.Area.FAT);
+//                rect(tree.toX - genetic.Tree.Area.FAT, tree.toY - genetic.Tree.Area.FAT, genetic.Tree.Area.FAT, genetic.Tree.Area.FAT);
 //            }
 //        }
 //
@@ -122,6 +127,6 @@ public class Main extends PApplet {
     }
 
     public static void main(String args[]) {
-        PApplet.main("Main");
+        PApplet.main("main.Main");
     }
 }

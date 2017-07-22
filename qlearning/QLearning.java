@@ -1,3 +1,8 @@
+package qlearning;
+
+import qlearning.model.GoalNode;
+import qlearning.model.Node;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -13,7 +18,7 @@ public class QLearning {
     private final int MAX_T = 100;
     private double Alpha = 0.1;
     private double Gamma = 0.9;
-    QLearning(UndirectedGraph data){
+    public QLearning(UndirectedGraph data){
         this.data = data;
     }
 

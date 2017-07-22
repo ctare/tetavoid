@@ -1,6 +1,7 @@
+package genetic;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.OptionalInt;
 
 /**
  * Created by ctare on 2017/07/19.
@@ -59,7 +60,7 @@ public class Gene {
 
 //            == highest ==
 //            float minv = Float.POSITIVE_INFINITY;
-//            for (Tree tree : trees) {
+//            for (genetic.Tree tree : trees) {
 //                minv = Math.min(minv, tree.toY);
 //            }
 

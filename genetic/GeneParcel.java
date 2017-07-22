@@ -1,3 +1,5 @@
+package genetic;
+
 /**
  * Created by ctare on 2017/07/20.
  */
