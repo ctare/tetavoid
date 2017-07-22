@@ -41,6 +41,29 @@ public class Tree {
         }
     }
 
+    public static int treeSize(){
+        ArrayDeque<Tree> deque = new ArrayDeque<>();
+        deque.add(new Tree(0, 0, -90, 5, 60, 1));
+        int count = 0;
+        while(!deque.isEmpty()){
+            Tree target = deque.removeFirst();
+            count++;
+            if(target.length > 5){
+                float rAngle = target.angle;
+                float lAngle = target.angle;
+                float nextFat = target.fat * 0.8f;
+                float nextLength = target.length * 0.7f;
+                Tree rNext = new Tree(target.toX, target.toY, rAngle, nextFat, nextLength, 0);
+                Tree lNext = new Tree(target.toX, target.toY, lAngle, nextFat, nextLength, 0);
+                deque.add(rNext);
+                deque.add(lNext);
+            }else{
+                target.isLeaf = true;
+            }
+        }
+        return count;
+    }
+
     public static ArrayList<Tree> getTrees(float x, float y, GeneCell[] gene){
         ArrayList<Tree> trees = new ArrayList<>();
         tree(trees, x, y, gene);

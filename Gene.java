@@ -55,7 +55,7 @@ public class Gene {
 //            fitness[i] = -sum;
 
 //            === sum and area ===
-            fitness[i] = area.sum() * -(sum) / 1000;
+            fitness[i] = area.sum() + -(sum);
 
 //            == highest ==
 //            float minv = Float.POSITIVE_INFINITY;
